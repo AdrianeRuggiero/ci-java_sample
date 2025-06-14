@@ -9,4 +9,9 @@ public class AppTest {
     void testSum() {
         assertEquals(5, App.sum(2, 3));
     }
+
+    @Test
+    void testSumFail() {
+        assertEquals(999, App.sum(1, 2));
+    }
 }
