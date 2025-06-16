@@ -11,6 +11,8 @@ services:
     user: root
     depends_on:
       - sonarqube
+    networks:
+      - cicd
 
   sonarqube:
     image: sonarqube:community
@@ -22,8 +24,13 @@ services:
     volumes:
       - sonar_data:/opt/sonarqube/data
       - sonar_logs:/opt/sonarqube/logs
+    networks:
+      - cicd
 
 volumes:
   jenkins_home:
   sonar_data:
   sonar_logs:
+
+networks:
+  cicd:

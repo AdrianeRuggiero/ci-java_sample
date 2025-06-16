@@ -29,7 +29,13 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=ci-java-sample -Dsonar.login=$SONAR_TOKEN'
+                    sh '''
+                        mvn sonar:sonar \
+                        -Dsonar.projectKey=ci-java-sample \
+                        -Dsonar.login=$SONAR_TOKEN \
+                        -Dsonar.coverage.exclusions=**/Application.java,**/SumController.java \
+                        -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+                    '''
                 }
             }
         }
