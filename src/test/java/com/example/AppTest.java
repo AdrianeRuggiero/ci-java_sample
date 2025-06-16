@@ -12,6 +12,6 @@ public class AppTest {
 
     @Test
     void testSumFail() {
-        assertEquals(999, App.sum(1, 2));
+        assertEquals(3, App.sum(1, 2));
     }
 }
