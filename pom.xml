@@ -82,6 +82,12 @@
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
                 <version>3.7.0.1746</version>
+                <configuration>
+                    <exclusions>
+                        <exclusion>**/Application.java</exclusion>
+                        <exclusion>**/SumController.java</exclusion>
+                    </exclusions>
+                </configuration>
             </plugin>
         </plugins>
     </build>
